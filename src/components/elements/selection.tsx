@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Maths from "./maths";
 
 const Selection = () => {
   const [type, setType] = useState("addition");
   const [difficulty, setDifficulty] = useState("easy");
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [math, setMath] = useState("");
 
   const handleTypeChange = (e: any) => {
     setType(e.target.value);
@@ -10,6 +14,58 @@ const Selection = () => {
 
   const handleDifficultyChange = (e: any) => {
     setDifficulty(e.target.value);
+  };
+
+  const begin = () => {
+    let newRandomNumber1 =
+      difficulty === "easy"
+        ? Math.floor(Math.random() * 10) + 1
+        : difficulty === "medium"
+        ? Math.floor(Math.random() * 90) + 11
+        : Math.floor(Math.random() * 900) + 101;
+
+    let newRandomNumber2 =
+      difficulty === "easy"
+        ? Math.floor(Math.random() * 10) + 1
+        : difficulty === "medium"
+        ? Math.floor(Math.random() * 90) + 11
+        : Math.floor(Math.random() * 900) + 101;
+
+    if (type === "subtraction" && newRandomNumber1 < newRandomNumber2) {
+      [newRandomNumber1, newRandomNumber2] = [
+        newRandomNumber2,
+        newRandomNumber1,
+      ];
+    }
+
+    if (type === "division") {
+      while (
+        newRandomNumber2 === 0 ||
+        newRandomNumber2 === 1 ||
+        newRandomNumber1 % newRandomNumber2 !== 0 ||
+        newRandomNumber1 === newRandomNumber2
+      ) {
+        newRandomNumber2 =
+          difficulty === "easy"
+            ? Math.floor(Math.random() * 10) + 1
+            : difficulty === "medium"
+            ? Math.floor(Math.random() * 90) + 11
+            : Math.floor(Math.random() * 900) + 101;
+      }
+    }
+
+    setNumber1(newRandomNumber1);
+    setNumber2(newRandomNumber2);
+
+    setMath(
+      type === "addition"
+        ? "+"
+        : type === "subtraction"
+        ? "-"
+        : type === "division"
+        ? "/"
+        : "*"
+    );
   };
 
   return (
@@ -78,6 +134,8 @@ const Selection = () => {
         />
         Hard
       </div>
+      <button onClick={begin}>Start</button>
+      <Maths number1={number1} operator={math} number2={number2} />
     </>
   );
 };
