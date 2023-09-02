@@ -18,7 +18,9 @@ const Selection = () => {
 
   const begin = () => {
     let newRandomNumber1 =
-      difficulty === "easy"
+      difficulty === "easy" && type === "division"
+        ? Math.floor(Math.random() * 100) + 1
+        : difficulty === "easy"
         ? Math.floor(Math.random() * 10) + 1
         : difficulty === "medium"
         ? Math.floor(Math.random() * 90) + 11
@@ -40,10 +42,8 @@ const Selection = () => {
 
     if (type === "division") {
       while (
-        newRandomNumber2 === 0 ||
-        newRandomNumber2 === 1 ||
-        newRandomNumber1 % newRandomNumber2 !== 0 ||
-        newRandomNumber1 === newRandomNumber2
+        newRandomNumber2 === newRandomNumber1 ||
+        newRandomNumber1 % newRandomNumber2 !== 0
       ) {
         newRandomNumber2 =
           difficulty === "easy"
