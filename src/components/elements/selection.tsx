@@ -8,6 +8,12 @@ const Selection = () => {
   const [number2, setNumber2] = useState(0);
   const [math, setMath] = useState("");
 
+  const handleResult = (isCorrect: boolean) => {
+    if (isCorrect) {
+      begin();
+    }
+  };
+
   const handleTypeChange = (e: any) => {
     setType(e.target.value);
   };
@@ -135,7 +141,12 @@ const Selection = () => {
         Hard
       </div>
       <button onClick={begin}>Start</button>
-      <Maths number1={number1} operator={math} number2={number2} />
+      <Maths
+        number1={number1}
+        operator={math}
+        number2={number2}
+        onResult={handleResult}
+      />
     </>
   );
 };
