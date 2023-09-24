@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Maths = (props: any) => {
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState<number | null>(null);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [operator, setOperator] = useState("");
@@ -44,6 +44,7 @@ const Maths = (props: any) => {
     e.preventDefault();
     const isCorrect = completeSum === result;
     props.onResult(isCorrect);
+    isCorrect ? setResult(null) : setResult(result);
   };
 
   return (
@@ -59,7 +60,7 @@ const Maths = (props: any) => {
             <input
               type="number"
               id="result"
-              value={result}
+              value={result === null || result === 0 ? "" : result}
               onChange={handleInputChange}
             />
             <button>Submit Answer</button>
