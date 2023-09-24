@@ -21,6 +21,7 @@ const Selection = () => {
   const handleDifficultyChange = (e: any) => {
     setDifficulty(e.target.value);
   };
+  console.log("Diff", difficulty, type);
 
   const begin = () => {
     let newRandomNumber1 =
@@ -79,66 +80,39 @@ const Selection = () => {
       <div>
         <label>Math Type</label>
         <br />
-        <input
-          type="radio"
-          value="addition"
-          name="mathtype"
-          checked={type === "addition"}
-          onChange={handleTypeChange}
-        />
-        Addition
-        <input
-          type="radio"
-          value="subtraction"
-          name="mathtype"
-          checked={type === "subtraction"}
-          onChange={handleTypeChange}
-        />
-        Subtraction
-        <input
-          type="radio"
-          value="division"
-          name="mathtype"
-          checked={type === "division"}
-          onChange={handleTypeChange}
-        />
-        Division
-        <input
-          type="radio"
+        <button value="addition" name="mathtype" onClick={handleTypeChange}>
+          Addition
+        </button>
+        <button value="subtraction" name="mathtype" onClick={handleTypeChange}>
+          Subtraction
+        </button>
+        <button value="division" name="mathtype" onClick={handleTypeChange}>
+          Division
+        </button>
+        <button
           value="multiplication"
           name="mathtype"
-          checked={type === "multiplication"}
-          onChange={handleTypeChange}
-        />
-        Multiplication
+          onClick={handleTypeChange}
+        >
+          Multiplication
+        </button>
       </div>
       <div>
         <label>Difficulty</label>
         <br />
-        <input
-          type="radio"
-          value="easy"
-          name="difficulty"
-          checked={difficulty === "easy"}
-          onChange={handleDifficultyChange}
-        />
-        Easy
-        <input
-          type="radio"
+        <button value="easy" name="difficulty" onClick={handleDifficultyChange}>
+          Easy
+        </button>
+        <button
           value="medium"
           name="difficulty"
-          checked={difficulty === "medium"}
-          onChange={handleDifficultyChange}
-        />
-        Medium
-        <input
-          type="radio"
-          value="hard"
-          name="difficulty"
-          checked={difficulty === "hard"}
-          onChange={handleDifficultyChange}
-        />
-        Hard
+          onClick={handleDifficultyChange}
+        >
+          Medium
+        </button>
+        <button value="hard" name="difficulty" onClick={handleDifficultyChange}>
+          Hard
+        </button>
       </div>
       <button onClick={begin}>Start</button>
       <Maths
