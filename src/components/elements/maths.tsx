@@ -48,10 +48,10 @@ const Maths = (props: any) => {
   };
 
   return (
-    <div>
+    <div className="submitResult">
       {num1 !== 0 && (
         <>
-          <p>
+          <p className="maths">
             {num1}
             {operator}
             {num2}
