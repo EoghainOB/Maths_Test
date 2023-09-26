@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import Maths from "./maths";
 
 const Selection = () => {
@@ -14,12 +14,12 @@ const Selection = () => {
     }
   };
 
-  const handleTypeChange = (e: any) => {
-    setType(e.target.value);
+  const handleTypeChange: MouseEventHandler<HTMLButtonElement> = (e) => {
+    setType(e.currentTarget.value);
   };
 
-  const handleDifficultyChange = (e: any) => {
-    setDifficulty(e.target.value);
+  const handleDifficultyChange: MouseEventHandler<HTMLButtonElement> = (e) => {
+    setDifficulty(e.currentTarget.value);
   };
 
   const begin = () => {
@@ -28,8 +28,6 @@ const Selection = () => {
         ? Math.floor(Math.random() * 100) + 1
         : difficulty === "easy"
         ? Math.floor(Math.random() * 10) + 1
-        : difficulty === "medium" && type === "division"
-        ? Math.floor(Math.random() * 900) + 101
         : difficulty === "medium"
         ? Math.floor(Math.random() * 90) + 11
         : Math.floor(Math.random() * 900) + 101;
@@ -41,7 +39,10 @@ const Selection = () => {
         ? Math.floor(Math.random() * 90) + 11
         : Math.floor(Math.random() * 900) + 101;
 
-    if (type === "subtraction" && newRandomNumber1 < newRandomNumber2) {
+    if (
+      (type === "subtraction" && newRandomNumber1 < newRandomNumber2) ||
+      (type === "multiplication" && newRandomNumber1 < newRandomNumber2)
+    ) {
       [newRandomNumber1, newRandomNumber2] = [
         newRandomNumber2,
         newRandomNumber1,
@@ -53,10 +54,19 @@ const Selection = () => {
         newRandomNumber2 =
           difficulty === "easy"
             ? Math.floor(Math.random() * 10) + 1
-            : Math.floor(Math.random() * 90) + 11;
+            : Math.floor(Math.random() * 491) + 10;
       }
-      const factor = Math.floor(Math.random() * 10) + 1;
+      const factor = Math.floor(Math.random() * 50) + 1;
       newRandomNumber1 = newRandomNumber2 * factor;
+    }
+
+    if (type === "multiplication") {
+      while (newRandomNumber2 === newRandomNumber1 || newRandomNumber2 === 1) {
+        newRandomNumber2 =
+          difficulty === "easy"
+            ? Math.floor(Math.random() * 10) + 1
+            : Math.floor(Math.random() * 491) + 1;
+      }
     }
 
     setNumber1(newRandomNumber1);
@@ -66,10 +76,10 @@ const Selection = () => {
       type === "addition"
         ? "+"
         : type === "subtraction"
-        ? "-"
+        ? "−"
         : type === "division"
-        ? "/"
-        : "*"
+        ? "÷"
+        : "×"
     );
   };
 

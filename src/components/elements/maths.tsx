@@ -12,11 +12,11 @@ const Maths = (props: any) => {
       switch (operator) {
         case "+":
           return num1 + num2;
-        case "-":
+        case "−":
           return num1 - num2;
-        case "*":
+        case "×":
           return num1 * num2;
-        case "/":
+        case "÷":
           return num1 / num2;
         default:
           return 0;
@@ -52,9 +52,7 @@ const Maths = (props: any) => {
       {num1 !== 0 && (
         <>
           <p className="maths">
-            {num1}
-            {operator}
-            {num2}
+            {num1} {operator} {num2}
           </p>
           <form onSubmit={submitResult}>
             <input
