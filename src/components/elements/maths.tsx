@@ -59,6 +59,7 @@ const Maths = (props: any) => {
           <form onSubmit={submitResult}>
             <input
               type="number"
+              placeholder="Enter Answer"
               id="result"
               value={result === null || result === 0 ? "" : result}
               onChange={handleInputChange}

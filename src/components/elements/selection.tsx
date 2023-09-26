@@ -28,6 +28,8 @@ const Selection = () => {
         ? Math.floor(Math.random() * 100) + 1
         : difficulty === "easy"
         ? Math.floor(Math.random() * 10) + 1
+        : difficulty === "medium" && type === "division"
+        ? Math.floor(Math.random() * 900) + 101
         : difficulty === "medium"
         ? Math.floor(Math.random() * 90) + 11
         : Math.floor(Math.random() * 900) + 101;
@@ -47,17 +49,14 @@ const Selection = () => {
     }
 
     if (type === "division") {
-      while (
-        newRandomNumber2 === newRandomNumber1 ||
-        newRandomNumber1 % newRandomNumber2 !== 0
-      ) {
+      while (newRandomNumber2 === newRandomNumber1 || newRandomNumber2 === 1) {
         newRandomNumber2 =
           difficulty === "easy"
             ? Math.floor(Math.random() * 10) + 1
-            : difficulty === "medium"
-            ? Math.floor(Math.random() * 90) + 11
-            : Math.floor(Math.random() * 900) + 101;
+            : Math.floor(Math.random() * 90) + 11;
       }
+      const factor = Math.floor(Math.random() * 10) + 1;
+      newRandomNumber1 = newRandomNumber2 * factor;
     }
 
     setNumber1(newRandomNumber1);
