@@ -6,6 +6,8 @@ const Maths = (props: any) => {
   const [num2, setNum2] = useState(0);
   const [operator, setOperator] = useState("");
   const [completeSum, setCompleteSum] = useState(0);
+  const [mathsClass, setMathsClass] = useState("maths");
+  const [transitionClass, setTransitionClass] = useState("");
 
   const calculateSum = () => {
     if (num1 !== null && num2 !== null && operator !== "") {
@@ -44,29 +46,44 @@ const Maths = (props: any) => {
     e.preventDefault();
     const isCorrect = completeSum === result;
     props.onResult(isCorrect);
+    setMathsClass(isCorrect ? "mathsCorrect" : "mathsIncorrect");
+    setTransitionClass("fade-out");
+    setTimeout(() => {
+      setMathsClass("maths");
+      setTransitionClass("");
+    }, 1000);
     isCorrect ? setResult(null) : setResult(result);
   };
 
   return (
-    <div className="submitResult">
-      {num1 !== 0 && (
-        <>
-          <p className="maths">
-            {num1} {operator} {num2}
-          </p>
-          <form onSubmit={submitResult}>
-            <input
-              type="number"
-              placeholder="Enter Answer"
-              id="result"
-              value={result === null || result === 0 ? "" : result}
-              onChange={handleInputChange}
-            />
-            <button>Submit Answer</button>
-          </form>
-        </>
+    <>
+      {completeSum !== 0 && (
+        <div className="submitResult">
+          {num1 !== 0 && (
+            <>
+              <div className={mathsClass}>
+                <h3>
+                  {num1} {operator} {num2}
+                </h3>
+              </div>
+              <div className="inputForm">
+                <h3>=</h3>
+                <form onSubmit={submitResult}>
+                  <input
+                    type="number"
+                    placeholder="Enter Answer"
+                    id="result"
+                    value={result === null || result === 0 ? "" : result}
+                    onChange={handleInputChange}
+                  />
+                  <button>Submit Answer</button>
+                </form>
+              </div>
+            </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

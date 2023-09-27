@@ -17,6 +17,11 @@
   font-size: 2em;
 }
 
+h3 {
+  font-size: 2em;
+  font-weight: normal;
+}
+
 .operatorBtns {
   background-color: rgb(232, 232, 232);
   padding: 20px;
@@ -41,7 +46,7 @@
 }
 
 .button {
-  width: 49%;
+  width: 23%;
 }
 
 .difButton {
@@ -50,8 +55,28 @@
 
 .maths {
   background-color: white;
+  border: solid 8px white;
   padding: 10px;
   font-size: 3em;
+  text-align: center;
+  transition: background-color 1s ease;
+}
+
+.mathsCorrect {
+  background-color: white;
+  border: solid 8px rgb(23, 229, 37);
+  padding: 10px;
+  font-size: 3em;
+  text-align: center;
+}
+
+.mathsIncorrect {
+  background-color: white;
+  border: solid 8px rgb(229, 23, 23);
+  padding: 10px;
+  font-size: 3em;
+  text-align: center;
+  transition: background-color 1s ease;
 }
 
 button {
@@ -88,7 +113,11 @@ button {
 
 .submitResult {
   background-color: rgb(167, 167, 167);
-  padding: 10px;
+  padding: 22px;
+}
+
+.inputForm {
+  text-align: center;
 }
 
 input {
