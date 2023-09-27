@@ -36,6 +36,7 @@ const Maths = (props: any) => {
   useEffect(() => {
     const calculatedSum = calculateSum();
     setCompleteSum(calculatedSum);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [num1, num2, operator]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
