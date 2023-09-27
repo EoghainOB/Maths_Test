@@ -86,68 +86,94 @@ const Selection = () => {
   return (
     <div className="content">
       <div className="operatorBtns">
-        <label>Math Type</label>
-        <br />
-        <button
-          value="addition"
-          name="mathtype"
-          className={type === "addition" ? "selected" : ""}
-          onClick={handleTypeChange}
-        >
-          Addition
-        </button>
-        <button
-          value="subtraction"
-          name="mathtype"
-          className={type === "subtraction" ? "selected" : ""}
-          onClick={handleTypeChange}
-        >
-          Subtraction
-        </button>
-        <button
-          value="division"
-          name="mathtype"
-          className={type === "division" ? "selected" : ""}
-          onClick={handleTypeChange}
-        >
-          Division
-        </button>
-        <button
-          value="multiplication"
-          name="mathtype"
-          className={type === "multiplication" ? "selected" : ""}
-          onClick={handleTypeChange}
-        >
-          Multiplication
-        </button>
+        {/* <label>Math Type</label> */}
+        <div className="opBtns">
+          <div className="button">
+            <button
+              value="addition"
+              name="mathtype"
+              className={
+                type === "addition" ? "operatorSelected" : "operatorButton"
+              }
+              onClick={handleTypeChange}
+            >
+              +
+            </button>
+          </div>
+          <div className="button">
+            <button
+              value="subtraction"
+              name="mathtype"
+              className={
+                type === "subtraction" ? "operatorSelected" : "operatorButton"
+              }
+              onClick={handleTypeChange}
+            >
+              −
+            </button>
+          </div>
+          <div className="button">
+            <button
+              value="division"
+              name="mathtype"
+              className={
+                type === "division" ? "operatorSelected" : "operatorButton"
+              }
+              onClick={handleTypeChange}
+            >
+              ÷
+            </button>
+          </div>
+          <div className="button">
+            <button
+              value="multiplication"
+              name="mathtype"
+              className={
+                type === "multiplication"
+                  ? "operatorSelected"
+                  : "operatorButton"
+              }
+              onClick={handleTypeChange}
+            >
+              ×
+            </button>
+          </div>
+        </div>
       </div>
       <div className="difficultyBtns">
-        <label>Difficulty</label>
-        <br />
-        <button
-          value="easy"
-          name="difficulty"
-          className={difficulty === "easy" ? "selected" : ""}
-          onClick={handleDifficultyChange}
-        >
-          Easy
-        </button>
-        <button
-          value="medium"
-          name="difficulty"
-          className={difficulty === "medium" ? "selected" : ""}
-          onClick={handleDifficultyChange}
-        >
-          Medium
-        </button>
-        <button
-          value="hard"
-          name="difficulty"
-          className={difficulty === "hard" ? "selected" : ""}
-          onClick={handleDifficultyChange}
-        >
-          Hard
-        </button>
+        {/* <label>Difficulty</label> */}
+        <div className="difBtns">
+          <div className="difButton">
+            <button
+              value="easy"
+              name="difficulty"
+              className={difficulty === "easy" ? "selected" : ""}
+              onClick={handleDifficultyChange}
+            >
+              Easy
+            </button>
+          </div>
+          <div className="difButton">
+            <button
+              value="medium"
+              name="difficulty"
+              className={difficulty === "medium" ? "selected" : ""}
+              onClick={handleDifficultyChange}
+            >
+              Medium
+            </button>
+          </div>
+          <div className="difButton">
+            <button
+              value="hard"
+              name="difficulty"
+              className={difficulty === "hard" ? "selected" : ""}
+              onClick={handleDifficultyChange}
+            >
+              Hard
+            </button>
+          </div>
+        </div>
       </div>
       <div className="startBtn">
         <button onClick={begin}>Start</button>
