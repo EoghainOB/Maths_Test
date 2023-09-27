@@ -86,7 +86,6 @@ const Selection = () => {
   return (
     <div className="content">
       <div className="operatorBtns">
-        {/* <label>Math Type</label> */}
         <div className="opBtns">
           <div className="button">
             <button
@@ -141,7 +140,6 @@ const Selection = () => {
         </div>
       </div>
       <div className="difficultyBtns">
-        {/* <label>Difficulty</label> */}
         <div className="difBtns">
           <div className="difButton">
             <button
