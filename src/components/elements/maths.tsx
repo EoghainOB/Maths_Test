@@ -58,7 +58,7 @@ const Maths = (props: any) => {
   return (
     <>
       {completeSum !== 0 && (
-        <div className="submitResult">
+        <div className={`submitResult ${transitionClass}`}>
           {num1 !== 0 && (
             <>
               <div className={mathsClass}>
