@@ -7,7 +7,7 @@ For this project I created a simple application that allowed my young daughter t
 ![MathsDesktop2](https://github.com/EoghainOB/Maths_Test/assets/110406695/7743b86f-7a1b-413f-a775-6ac4d23f4d4f)
 
 
-### Mobile![MathsMobile]
+### Mobile
 
 <img width="300" src="https://github.com/EoghainOB/Maths_Test/assets/110406695/dbb0ca7e-0508-43c0-a562-057956907e7f">
 
