@@ -141,9 +141,18 @@ input {
 }
 
 @media only screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 2.6em;
+  }
   h3 {
     font-size: 1em;
     padding-top: 5px;
+  }
+  .operatorSelected,
+  .operatorButton {
+    font-family: "Major Mono Display", monospace;
+    font-size: 3.5em;
+    height: 65px;
   }
   .input {
     margin-top: 5px;
