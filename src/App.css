@@ -70,24 +70,22 @@ h3 {
 
 .maths {
   background-color: white;
-  border: solid 8px white;
   font-size: 3em;
   text-align: center;
+  padding: 10px;
   border-radius: 3px;
-  transition: background-color 1s ease;
 }
 
 .mathsCorrect {
-  background-color: white;
-  border: solid 8px rgb(23, 229, 37);
+  background-color: rgb(23, 229, 37);
   padding: 10px;
   font-size: 3em;
   text-align: center;
+  transition: background-color 1s ease;
 }
 
 .mathsIncorrect {
-  background-color: white;
-  border: solid 8px rgb(229, 23, 23);
+  background-color: red;
   padding: 10px;
   font-size: 3em;
   text-align: center;

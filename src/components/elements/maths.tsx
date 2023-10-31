@@ -46,12 +46,14 @@ const Maths = (props: any) => {
   const submitResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isCorrect = completeSum === result;
-    props.onResult(isCorrect);
     setMathsClass(isCorrect ? "mathsCorrect" : "mathsIncorrect");
     setTransitionClass("fade-out");
     setTimeout(() => {
       setMathsClass("maths");
       setTransitionClass("");
+    }, 1000);
+    setTimeout(() => {
+      props.onResult(isCorrect);
     }, 1000);
     isCorrect ? setResult(null) : setResult(result);
   };
